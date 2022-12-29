@@ -22,6 +22,12 @@ class Home extends CI_Controller {
 		$this->load->view('home/index',$main);
 	}
 
+	public function portfolio()
+	{
+		
+		$this->load->view('/home/portfolio');
+	}
+
 	function project()
 	{
 		if ($this->uri->segment(3) != '' or $this->uri->segment(3) != null) {

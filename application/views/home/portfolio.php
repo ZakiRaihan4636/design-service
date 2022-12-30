@@ -24,7 +24,7 @@ include_once('script.php');
          <div class="portfolio-item row">
             <div class="item selfie col-lg-3 col-md-4 col-6 col-sm">
                <a href="https://image.freepik.com/free-photo/stylish-young-woman-with-bags-taking-selfie_23-2147962203.jpg" class="fancylight popup-btn" data-fancybox-group="light"> 
-               <img class="img-fluid" src="https://image.freepik.com/free-photo/stylish-young-woman-with-bags-taking-selfie_23-2147962203.jpg" alt="">
+               <img class="img-fluid" src="<?= base_url()?>assets/images/gallery/our-gallery-2.jpg" alt="">
                </a>
             </div>
             <div class="item gts col-lg-3 col-md-4 col-6 col-sm">

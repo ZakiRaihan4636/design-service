@@ -41,8 +41,11 @@ class Admin extends CI_Controller {
 			$foto = $_FILES["foto_upload"]["name"];
 			$kategori = $this->input->post('kategori');
 			$undangan = $this->input->post('jenis_undangan');
+			$judul = $this->input->post('judul');
+			$deskripsi = $this->input->post('deskripsi');
 			$harga = $this->input->post('harga');
 			$harga = str_replace(',', '', $harga);
+			
 
 
 
@@ -69,7 +72,7 @@ class Admin extends CI_Controller {
 
 
 			/////// proses upload foto sama masukan data ke database /////
-			$this->madmin->insert('tb_produk',array('kategori' => $kategori));
+			$this->madmin->insert('tb_produk',array('judul' => $judul, 'deskripsi'=>$deskripsi, 'kategori' => $kategori));
 			$cek_data = $this->madmin->tampil_data_last('tb_produk','no');
 			foreach ($cek_data->result() as $key => $value) ;
 			$no =  $value->no;
@@ -81,7 +84,7 @@ class Admin extends CI_Controller {
 			if ($kategori == 1) {
 				$array = array('undangan' => $undangan, 'harga' =>$harga, 'img' => $dir.$no.'.jpg');
 			}else{
-				$array = array( 'harga' =>$harga, 'img' => $dir.$no.'.jpg');
+				$array = array('harga' =>$harga, 'img' => $dir.$no.'.jpg');
 			}
 			$this->madmin->update('tb_produk',array('no' => $no),array('keterangan' => json_encode($array)));
 			move_uploaded_file($_FILES["foto_upload"]["tmp_name"], $dir.$no.".jpg");
@@ -141,6 +144,7 @@ class Admin extends CI_Controller {
 		}elseif ($this->input->post('edit_nya')) {
 			$kategori = $this->input->post('kategori');
 			$undangan = $this->input->post('jenis_undangan');
+			$judul = $this->input->post('judul');
 			$harga = $this->input->post('harga');
 			$harga = str_replace(',', '', $harga);
 			$dir = 'images/produk/';
@@ -162,9 +166,9 @@ class Admin extends CI_Controller {
 				move_uploaded_file($_FILES["foto_upload"]["tmp_name"], $dir.$kode.".jpg");
 			}
 			if ($kategori == 1) {
-				$array = array('undangan' => $undangan, 'harga' =>$harga, 'img' => $dir.$kode.'.jpg');
+				$array = array('judul'=> $judul,'undangan' => $undangan, 'harga' =>$harga, 'img' => $dir.$kode.'.jpg');
 			}else{
-				$array = array( 'harga' =>$harga, 'img' => $dir.$kode.'.jpg');
+				$array = array('judul' => $judul, 'harga' =>$harga, 'img' => $dir.$kode.'.jpg');
 			}
 
 			$this->madmin->update('tb_produk',array('no' => $kode),array('kategori' => $kategori,'keterangan' => json_encode($array)));

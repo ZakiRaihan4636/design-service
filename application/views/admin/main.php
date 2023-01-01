@@ -15,10 +15,10 @@
 							<div class="form-group">
 								<label for="exampleInputPassword1">Kategori</label>
 								<select class="form-control" name="kategori" onchange="changeKategori();" id="kategori">
-									<option value="">-Sila Pilih Kategori</option>
-									<option value="1">Undangan</option>
-									<option value="2">Kartu Nama</option>
-									<option value="3">Spanduk</option>
+									<option value="">-Silahkan Pilih Kategori</option>
+									<option value="1">Logo</option>
+									<option value="2">Browsur</option>
+									<option value="3">Poster</option>
 								</select>
 							</div>
 							<div class="form-group" id="jenis_undangan" style="display: none">
@@ -28,6 +28,16 @@
 									<option value="1">Undangan Aqiqah</option>
 									<option value="2">Undangan Nikah</option>
 								</select>
+							</div>
+
+							<div class="form-group">
+								<label for="exampleInputEmail1">Judul</label>
+								<input type="text"  class="form-control" placeholder="Masukan Judul" name="judul"  id="judul">
+							</div>
+							
+							<div class="form-group">
+								<label for="exampleInputEmail1">Deskripsi</label>
+								<textarea name="deskripsi" id="desktipsi" class="form-control" cols="30" rows="10"></textarea>
 							</div>
 
 							<div class="form-group">

@@ -11,10 +11,10 @@
 
               <ul class="site-menu js-clone-nav mr-auto d-none d-lg-block">
                 <li <?php if ($this->uri->segment(2) == '') { echo 'class="active"'; } ?>><a href="<?=base_url()?>"  style="color:#DBA39A;">Home</a></li>
-                <li style="color:#DBA39A;" <?php if ($this->uri->segment(2) == 'prelogin') { echo 'class="active"'; } ?>><a href="<?=base_url()?>home/prelogin"  style="color:#DBA39A;">About Us</a></li>
+                <li <?php if ($this->uri->segment(2) == '') { echo 'class="active"'; } ?>><a href="#about"  style="color:#DBA39A;">Tentang Kami</a></li>
                 <li style="color:#DBA39A;" <?php if ($this->uri->segment(2) == 'project') { echo 'class="active"'; } ?>><a href="<?=base_url()?>home/portfolio"  style="color:#DBA39A;">Portfolio</a></li>
                 <li style="color:#DBA39A;" <?php if ($this->uri->segment(2) == 'project') { echo 'class="active"'; } ?>><a href="<?=base_url()?>home/project"  style="color:#DBA39A;">Layanan Kami</a></li>
-                <li style="color:#DBA39A;" <?php if ($this->uri->segment(2) == 'project') { echo 'class="active"'; } ?>><a href="<?=base_url()?>home/project"  style="color:#DBA39A;">Testimoni</a></li>
+                <li <?php if ($this->uri->segment(2) == '') { echo 'class="active"'; } ?>><a href="<?=base_url()?>"  style="color:#DBA39A;">Testimoni</a></li>
                 <li style="background:#DBA39A;" class="btn" <?php if ($this->uri->segment(2) == 'prelogin') { echo 'class="active"'; } ?>><a href="<?=base_url()?>home/prelogin"  style="color:#ffff;">Login</a></li>
                 <li style="color:#DBA39A;" class="btn btn-light" <?php if ($this->uri->segment(2) == 'prelogin') { echo 'class="active"'; } ?>><a href="<?=base_url()?>home/prelogin"  style="color:#DBA39A;">Register</a></li>
               </ul>

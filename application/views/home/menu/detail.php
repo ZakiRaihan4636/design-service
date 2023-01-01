@@ -4,55 +4,42 @@
           <?php foreach ($data->result() as $key => $value);
             $ket = json_decode($value->keterangan);
           ?>
-          <div class="col-md-12">
-            <div class="col-md-12 col-lg-12">
-              <div class="h-entry">
-                <center><img src="<?=base_url($ket->img)?>" alt="Image" class="img-fluid">
-                <!-- <h2 class="font-size-regular"><a href="#">Warehousing Your Packages</a></h2> -->
-                <div class="meta mb-4"><span class="mx-2"></span>Upload &bullet; <?=$value->tanggal_upload?><span class="mx-2">&bullet;</span> </div></center>
-                
 
-                <div class="row form-group">
-                  
-                  <div class="col-md-12">
-                    <label class="text-black" for="email">Harga</label> 
-                    <input type="text" id="email" class="form-control" value="Rp. <?=number_format($ket->harga)?> / pcs" disabled="">
-                  </div>
-                </div>
-
-                <div class="row form-group">
-                  
-                  <div class="col-md-12">
-                    <label class="text-black" for="subject">Kertas</label> 
-                    <select class="form-control">
-                      <option>Art Paper</option>
-                      <option>Jasmin</option>
-                      <option>Cartoon</option>
-                    </select>
-                  </div>
-                </div>
-
-                <div class="row form-group">
-                  
-                  <div class="col-md-12">
-                    <label class="text-black" for="subject">Panjang X Lebar</label> 
-                    <select class="form-control">
-                      <option>Panjang X Lebar 1</option>
-                      <option>Panjang X Lebar 2</option>
-                      <option>Panjang X Lebar 3</option>
-                    </select>
-                  </div>
-                </div>
-                <center><a href="<?=base_url()?>home/project"><button type="button" class="btn btn-warning btn-md text-white"><b>Kembali</b></button></a></center>
-
-              </div> 
+          <div class="d-flex ml-3">
+            <img width="700" src="<?=base_url($ket->img)?>" alt="Image" class="img-fluid" alt="">
+            <div class="foto d-flex flex-column ml-2">
+              <img width="400" src="<?=base_url($ket->img)?>" alt="">
+              <img width="400" class="mt-2" width="20" src="<?=base_url($ket->img)?>" alt="">
             </div>
-             
+          </div>
+          
+          <div class="col-md-12 mt-4">
+                <h1><?= $value->judul; ?></h1>
+                <p><?= $value->deskripsi; ?></p>
+          </div>
+
+          <div class="col-md-12 mt-2 py-2">
+
+          <div class="card py-2 pl-4">
+            <div class="d-flex">
+                <img widht=70 height=70 src="<?=base_url()?>assets/images/avatar-1.jpg" alt="Image" class="rounded-circle my-2">
+                <div class="d-flex flex-column mx-2">
+                  <div class="d-flex justify-content-between mt-2 mb-2">
+                       <h3 class="font-weight-bold">Desainer</h3>
+                       <a href="https://wa.me/085718805934" class="btn btn-outline-primary mr-2">Chat dan nego</a>
+                  </div>
+                     <p>Berpengalaman 8 tahun pada desain grafis, materi promosi, materi media sosial, logo dll. Anda sudah berada di tempat yang tepat, jadi nikmati saja secangkir kopi anda & semua keperluan promosi bisnis anda biar saya yang menangani.</p>
+              </div>
+           
             
-          </div> 
+            </div>
+            
+
+          </div>
+                      
+          </div>
 
           
-
         </div>
       </div>
     </section>

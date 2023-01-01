@@ -64,6 +64,10 @@
 							
 
 							<div class="form-group">
+								<label for="exampleInputEmail1">judul</label>
+								<input type="text"  class="form-control" name="judul" value="<?=$ket->judul?>" id="judul" minlength="5" maxlength="6" required="">
+							</div>
+							<div class="form-group">
 								<label for="exampleInputEmail1">Harga</label>
 								<input type="text"  class="form-control" name="harga" value="<?=number_format($ket->harga)?>" id="num" minlength="5" maxlength="6" required="">
 							</div>

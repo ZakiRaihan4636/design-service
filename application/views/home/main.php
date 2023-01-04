@@ -5,7 +5,8 @@
             <h2 class="text-black h1 font-weight-bold mt-4">Tentang Kami</h2>
             <div class="d-flex d-flex d-flex justify-content-between">
                 <p style="width:530px" class="mt-2">
-              Design Service merupakan sebuah usaha berbasis jasa yang dimulai pada awal tahun 2022. Tujuan awal usaha ini adalah untuk membantu terutama para wirausahawan yang ingin memulai usahanya dengan berbasis website. Tentunya bukan hanya itu saja, semua kalangan dapat menggunakan jasa kami.
+                Design service merupakan sebuah jasa pemasaran secara online yang menawarkan design grafis, jasa ini dibangun pada awal tahun 2022. Design service juga berkomitmen untuk memberikan pelayanan terbaik untuk para konsumennya. Komitmen tersebut dibuktikan dengan adanya banyak testimoni positif dari para pelanggan yang pernah menggunakan jasa dari design service.
+
             </p>
             <img style="width:400px; margin-bottom:10px; position:absolute; top:0px; right:80px; bottom:40px; height:300px;"  src="<?=base_url()?>assets/images/logo/logo-4.png">
             </div>
@@ -75,8 +76,9 @@
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-md-12 text-center">
-            <h1 class="h1 text-black font-weight-bold   text-center ">Kami siap melayani anda kamapun pun dan dimanapun</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa harum praesentium laborum unde? Vitae aspernatur consequatur corrupti quaerat earum nostrum maiores facere perspiciatis. Saepe suscipit rem neque voluptas! Deleniti, facilis?</p>
+            <h1 class="h1 text-black font-weight-bold   text-center ">Kami siap melayani anda kapan pun dan dimanapun Anda berada</h1>
+            <p>Proporsi yang kami sajikan telah sesuai dengan kebutuhan dan keinginan yang anda harapkan
+</p>
           </div>
         </div>
 

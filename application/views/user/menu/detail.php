@@ -3,132 +3,48 @@
         <div class="row">
           <?php foreach ($data->result() as $key => $value);
             $ket = json_decode($value->keterangan);
-            $cekkategori = $this->muser->tampil_data_where('tb_kategori',array('no' =>$value->kategori));
-            foreach ($cekkategori->result() as $key1 => $value1) ;
-            $kategori = $value1->nama;
-            if ($value->kategori == 1) {
-              if ($ket->undangan == 1) {
-                $kategori = $kategori . ' Aqiqah';
-              }elseif ($ket->undangan == 2) {
-                $kategori = $kategori . ' Nikah';
-              }
-            }else{
-              $kategori = $kategori;
-            }
           ?>
-          <div class="col-md-12">
-            <div class="col-md-12 col-lg-12">
-              <div class="h-entry">
-                <center><img src="<?=base_url($ket->img)?>" alt="Image" class="img-fluid">
-                <!-- <h2 class="font-size-regular"><a href="#">Warehousing Your Packages</a></h2> -->
-                <div class="meta mb-4"><span class="mx-2"></span><b><?=$kategori?></b> / Upload &bullet; <?=$value->tanggal_upload?><span class="mx-2">&bullet;</span> </div></center>
-              </div> 
+
+          <div class="d-flex ml-3">
+            <img width="700" src="<?=base_url($ket->img)?>" alt="Image" class="img-fluid" alt="">
+            <div class="foto d-flex flex-column ml-2">
+              <img width="400" src="<?=base_url($ket->img)?>" alt="">
+              <img width="400" class="mt-2" width="20" src="<?=base_url($ket->img)?>" alt="">
             </div>
-          </div> 
-        </div>
-      </div>
-
-      <div class="container">
-        <div class="row">
-          <div class="col-md-7 mb-5">
-            <form method="post" class="p-4 bg-white">
-              <div class="row form-group">
-                <div class="col-md-12">
-                  <label class="text-black" for="email">Harga</label> 
-                  <input type="text" id="email" class="form-control" value="Rp. <?=number_format($ket->harga)?> / pcs" disabled="">
+          </div>
+          
+          <div class="col-md-12 mt-4">
+                <h1><?= $value->judul; ?></h1>
+                <p><?= $value->deskripsi; ?></p>
+                <p><span>Harga Awal  : </span><?= $ket->harga; ?></p>
+                <div class="d-flex justify-content-start">
+                  <a href="<?= base_url()?>user" class="btn btn-danger btn-md" style="color:white;">Kembali</a>
+                 <a href="<?=base_url()?>user/beli/<?=$value->no?>" class="btn btn-warning btn-md ml-3" style="color:white;">Pesan Sekarang</a>
                 </div>
-              </div>
-              <div class="row form-group">
-                <div class="col-md-12">
-                  <label class="text-black" for="subject">Jenis Kertas</label> 
-                  <?php if ($value->kategori !=3): ?>
-                  <select class="form-control">
-                    <?php  
-                        if ($value->kategori == 1) { ?>
-                    <option value="4000">Art Paper | Rp. 4,000 / 1 pcs</option>
-                    <option value="3000">Jasmine | Rp. 3,000 / 1 pcs</option>
-                    <option value="1000">Cartoon | Rp. 1,000 / 1 pcs</option>      
-                        <?php }elseif ($value->kategori == 2) { ?>
-                    <option value="25000">PVC | Rp. 25,000 / 1 pcs</option>
-                    <option value="3000">Photopaper | Rp. 1,000 / 1 pcs</option>
-                    <option value="1000">Cartoon | Rp. 500 / 1 pcs</option>      
-                        <?php }
-                      ?>
-                  </select> 
-                  <?php endif ?>
-                  <?php if ($value->kategori == 3): ?>
-                  <input type="text" class="form-control" value="Vinyl" disabled="">  
-                  <?php endif ?>
-                </div>
-              </div>
-
-              <div class="row form-group">
-                <div class="col-md-12">
-                  <label class="text-black" for="subject">Panjang X Lebar</label> 
-                  <?php  
-                    if ($value->kategori == 1) { ?>
-                  <input type="text" value="15.3 cm X 20.3 cm" class="form-control" title="15.3 cm X 20.3 cm" disabled="">   
-                      <?php
-                    }elseif ($value->kategori == 3){ ?>
-                  <input type="text" value="1m x 1m = Rp. 25,000" class="form-control" title="1m x 1m = Rp. 25,000" disabled="">
-                      <?php
-                    }elseif($value->kategori == 2){ ?>
-                  <input type="text" value="5.3 cm X 8.8 cm" class="form-control" title="5.3 cm X 8.8 cm" disabled="">
-                      <?php
-                    }
-                  ?>
-                  
-                </div>
-              </div>
-              <center><a href="<?=base_url()?>user/"><button type="button" class="btn btn-warning btn-md text-white"><b>Kembali</b></button></a> &nbsp &nbsp<a href="<?=base_url()?>user/beli/<?=$this->uri->segment(3)?>"><button type="button" class="btn btn-info btn-md text-white"><b>Beli</b></button></a></center>
-            </form>
           </div>
 
-          <div class="col-md-5">
-            
-            <div class="p-4 mb-3 bg-white">
-              <?php if (count($komentar->result()) > 0): ?>
-                <h2 class="h4 text-black mb-5">Komentar</h2> 
-                <?php  
-                  foreach ($komentar->result() as $key => $value) ;
-                  $komen = json_decode($value->komen);
-                  foreach ($komen as $key1 => $value1) { 
-                    $cari_data_user = $this->muser->tampil_data_where('tb_pembeli',array('id' => $value1->id_pembeli));
-                    foreach ($cari_data_user->result() as $key2 => $value2) ;
-                    // print_r($value1);
-                    ?>
-                    <p class="mb-0 font-weight-bold"><?=$value2->nama?></p>
-                    <p class="mb-4"><?=$value1->komen?></p>
-                    <hr>
-                    <?php
-                  }
-                ?>
-              <?php else: ?>
-                <h2 class="h4 text-black mb-5">Belum Ada Komentar</h2> 
-              <?php endif ?>
-            </div>
+          <div class="col-md-12 mt-3 py-2">
 
-
-            <?php if (count($komentar->result()) > 0): ?>
-              <div class="row">
-                <div class="col-11">
-                  <div class="custom-pagination text-center">
-                    <span>1</span>
-                    <a href="#">2</a>
-                    <a href="#">3</a>
-                    <span class="more-page">...</span>
-                    <a href="#">10</a>
+          <div class="card py-2 pl-4">
+            <div class="d-flex">
+                <img widht=70 height=70 src="<?=base_url()?>assets/images/avatar-1.jpg" alt="Image" class="rounded-circle my-2">
+                <div class="d-flex flex-column mx-2">
+                  <div class="d-flex justify-content-between mt-2 mb-2">
+                       <h3 class="font-weight-bold">Desainer</h3>
+                       <a href="https://wa.me/085718805934" class="btn btn-outline-primary mr-2">Chat dan nego</a>
                   </div>
-                </div>
+                     <p>Berpengalaman 8 tahun pada desain grafis, materi promosi, materi media sosial, logo dll. Anda sudah berada di tempat yang tepat, jadi nikmati saja secangkir kopi anda & semua keperluan promosi bisnis anda biar saya yang menangani.</p>
               </div>
-            <?php else: ?>
-
-            <?php endif ?>
+           
             
-            
+            </div>
             
 
           </div>
+                      
+          </div>
+
+          
         </div>
       </div>
     </section>

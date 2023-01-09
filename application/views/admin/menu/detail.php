@@ -43,7 +43,7 @@
 
 							<div class="form-group">
 								<label for="exampleInputEmail1">Judul</label>
-								<input type="text"  class="form-control" value="<?=$ket->judul?>" disabled="">
+								<input type="text"  class="form-control" value="<?=$value->judul?>" disabled="">
 							</div>
 							<div class="form-group">
 								<label for="exampleInputEmail1">Harga</label>

@@ -1,6 +1,6 @@
-<div class="main-menu">
+<div  class="main-menu">
 	<header class="header">
-		<a href="index-2.html" class="logo"><img src="<?=base_url()?>logo.png" width="50" height="50">Desain Grafis</a>
+		<a href="index-2.html" class="logo"><img  src="<?=base_url()?>assets/images/logo/logo-4.png" width="50" style="border-radius:50%; margin-right:10px;" height="50">Desain Grafis</a>
 		<!-- <button type="button" class="button-close fa fa-times js__menu_close"></button> -->
 		<div class="user">
 			<a href="#" class="avatar"><img src="<?=base_url()?>logo.png" alt="" width="50" height="50"></a>

@@ -5,9 +5,9 @@
 	<meta name="description" content="">
 	<meta name="author" content="">
 
-	<title>Desain Grafis - <?=$header?></title>
+	<title>Design Service - <?=$header?></title>
 
-	<link rel="icon" href="<?=base_url()?>icon.jpg">
+	<link rel="icon" href="<?=base_url()?>assets/imgaes/logo/logo-4.jpg">
 	<!-- Main Styles -->
 	<link rel="stylesheet" href="<?=base_url()?>assets/styles/style.min.css">
 	

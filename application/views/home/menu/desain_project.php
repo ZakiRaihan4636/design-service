@@ -16,7 +16,6 @@
           </div>
 
 
-          <div class="col-md-12 tabcontent" id="undangan">
             
             <!-- <div class="row mb-5">
               <?php  
@@ -58,6 +57,7 @@
 
     <!-- For demo purpose -->
 
+          <div class="col-md-12 tabcontent" id="undangan">
     
     <div class="row mb-5">
       <?php 
@@ -72,7 +72,7 @@
       <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
         <div class="bg-white rounded shadow-sm"><img src="<?=base_url($keterangan->img)?>" alt="" class="img-fluid card-img-top">
           <div class="p-4">
-            <h5> <a href="<?=base_url()?>home/project/<?=$value->no?>" class="text-dark"><?= $keterangan->judul; ?></a></h5>
+            <h5> <a href="<?=base_url()?>home/project/<?=$value->no?>" class="text-dark"><?=$value->judul; ?></a></h5>
             <p class="small text-muted mb-0"></p>
             <div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
               <p class="small mb-0"><i class="fa fa-picture-o mr-2"></i><span class="font-weight-bold">Harga</span></p>
@@ -138,7 +138,7 @@
       <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
         <div class="bg-white rounded shadow-sm"><img src="<?=base_url($keterangan->img)?>" alt="" class="img-fluid card-img-top">
           <div class="p-4">
-            <h5> <a href="<?=base_url()?>home/project/<?=$value->no?>" class="text-dark"><?= $keterangan->judul; ?></a></h5>
+            <h5> <a href="<?=base_url()?>home/project/<?=$value->no?>" class="text-dark"><?= $value->judul; ?></a></h5>
             <p class="small text-muted mb-0"></p>
             <div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
               <p class="small mb-0"><i class="fa fa-picture-o mr-2"></i><span class="font-weight-bold">Harga</span></p>

@@ -22,15 +22,6 @@ include_once('script.php');
   <div class="row">
      <div class="col-lg-12 text-center my-2">
          <div class="portfolio-item row">
-            <div class="item selfie col-lg-3 col-md-4 col-6 col-sm">
-               <a href="https://image.freepik.com/free-photo/stylish-young-woman-with-bags-taking-selfie_23-2147962203.jpg" class="fancylight popup-btn" data-fancybox-group="light"> 
-<<<<<<< HEAD
-               <img class="img-fluid" src="<?= base_url()?>assets/images/gallery/browsur2.png" alt="">
-=======
-               <img class="img-fluid" src="<?= base_url()?>assets/images/gallery/our-gallery-2.jpg" alt="">
->>>>>>> a74616de816d834fc780f6cd389c02eb507b6e6a
-               </a>
-            </div>
             <div class="item gts col-lg-3 col-md-4 col-6 col-sm">
                <a href="https://image.freepik.com/free-photo/pretty-girl-near-car_1157-16962.jpg" class="fancylight popup-btn" data-fancybox-group="light"> 
                <img class="img-fluid" src="<?= base_url()?>assets/images/gallery/logo.png" alt="">

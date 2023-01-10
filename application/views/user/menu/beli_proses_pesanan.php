@@ -82,14 +82,14 @@
             <div class="row form-group">
               
               <div class="col-md-12">
-                <label class="text-black" for="email">Harga Cetak</label> 
+                <!-- <label class="text-black" for="email">Harga Cetak</label>  -->
                 <?php if ($value1->kategori == 3): ?>
                 <!-- <input type="Text"  class="form-control" value="Rp. <?=number_format(($ket_pembelian->lebar * 12500)  + ($ket_pembelian->panjang * 12500) + $ket_produk->harga)?> / <?=$ket_pembelian->jumlah_kertas?> pcs" disabled="">  -->
-                <input type="Text"  class="form-control" value="Rp. <?=number_format($ket_pembelian->lebar * $ket_pembelian->panjang * 12500 * $ket_pembelian->jumlah_kertas + $ket_produk->harga)?> / <?=$ket_pembelian->jumlah_kertas?> pcs" disabled=""> 
+                <input type="hidden"  class="form-control" value="Rp. <?=number_format($ket_pembelian->lebar * $ket_pembelian->panjang * 12500 * $ket_pembelian->jumlah_kertas + $ket_produk->harga)?> / <?=$ket_pembelian->jumlah_kertas?> pcs" disabled=""> 
                 <?php endif ?>
                 <?php if ($value1->kategori != 3): ?>
                 <!-- <input type="Text"  class="form-control" value="Rp. <?=number_format(($ket_pembelian->jenis_kertas + $ket_produk->harga) * $ket_pembelian->jumlah_kertas)?> / <?=$ket_pembelian->jumlah_kertas?> pcs" disabled="">    -->
-                <input type="Text"  class="form-control" value="Rp. <?=number_format(($ket_pembelian->jenis_kertas * $ket_pembelian->jumlah_kertas ) + $ket_produk->harga)?> / <?=$ket_pembelian->jumlah_kertas?> pcs" disabled="">   
+                <input type="hidden"  class="form-control" value="Rp. <?=number_format(($ket_pembelian->jenis_kertas * $ket_pembelian->jumlah_kertas ) + $ket_produk->harga)?> / <?=$ket_pembelian->jumlah_kertas?> pcs" disabled="">   
                 <?php endif ?>
                 
               </div>
@@ -98,20 +98,20 @@
             <div class="row form-group">
               
               <div class="col-md-12">
-                <label class="text-black" for="email">Kode Unik</label> 
-                <input type="Text"  class="form-control" value="Rp. <?=substr($data_pembeli['no_telpon'], -3)?>" disabled="">
+                <!-- <label class="text-black" for="email">Kode Unik</label>  -->
+                <input type="hidden"  class="form-control" value="Rp. <?=substr($data_pembeli['no_telpon'], -3)?>" disabled="">
               </div>
             </div>
 
             <div class="row form-group">
               
               <div class="col-md-12">
-                <label class="text-black" for="email">Total Harga</label>
+                <label class="text-black" for="email">Nama </label>
                 <?php if ($value1->kategori == 3): ?>
-                <input type="Text"  class="form-control" value="Rp. <?=number_format($ket_pembelian->lebar * $ket_pembelian->panjang * 12500 * $ket_pembelian->jumlah_kertas + $ket_produk->harga + substr($data_pembeli['no_telpon'], -3))?>" disabled="">   
+                <input type="Text"  class="form-control" value="<?= $data_pembeli["nama"]?>" disabled="">   
                 <?php endif ?> 
                 <?php if ($value1->kategori != 3): ?>
-                <input type="Text"  class="form-control" value="Rp. <?=number_format(($ket_pembelian->jenis_kertas * $ket_pembelian->jumlah_kertas ) + $ket_produk->harga + substr($data_pembeli['no_telpon'], -3))?>" disabled="">  
+                <input type="Text"  class="form-control" value=" <?=($data_pembeli["nama"] )?>" disabled="">  
                 <?php endif ?>
                 
               </div>
@@ -165,9 +165,8 @@
                 if ($value1->kategori != 3) { ?>
                   <div class="row form-group">
                     <div class="col-md-12">
-                      <label class="text-black" for="email">Jenis Kertas</label> 
-                      <select class="form-control" name="jenis_kertas" id="jenis_kertas" required <?php if ($value->id_transaksi >= 2): ?> disabled="" <?php endif ?>>
-                        <option value="" disabled="">-Silahkan Pilih Jenis Kertas</option>
+                      <!-- <label class="text-black" for="email">Jenis Kertas</label>  -->
+                      <select class="form-control" name="jenis_kertas" id="jenis_kertas" required <?php if ($value->id_transaksi >= 2): ?> disabled="" <?php endif ?> hidden>
                           <?php  
                             if ($value1->kategori == 1) { ?>
                         <option value="4000" <?php if ($ket_pembelian->jenis_kertas == "4000"): ?> selected="" <?php endif ?>>Art Paper | Rp. 4,000 / 1 pcs</option>
@@ -187,8 +186,8 @@
                     }elseif ($value1->kategori == 3) { ?>
                   <div class="row form-group">
                     <div class="col-md-12">
-                      <label class="text-black" for="email">Jenis Kertas</label> 
-                      <input type="text" name="" disabled="" value="Vinyl" class="form-control" <?php if ($value->id_transaksi >= 2): ?> disabled="" <?php endif ?>>
+                      <!-- <label class="text-black" for="email">Jenis Kertas</label>  -->
+                      <input type="hidden" name="" disabled="" value="Vinyl" class="form-control" <?php if ($value->id_transaksi >= 2): ?> disabled="" <?php endif ?>>
                     </div>
                   </div>    
                   <?php
@@ -198,12 +197,12 @@
 
               <?php  
                 if ($value1->kategori == 1) { ?>
-                  <div class="row form-group">
+                  <!-- <div class="row form-group">
                     <div class="col-md-12">
                       <label class="text-black" for="email">Panjang X Lebar</label> 
                       <input type="text" name="panjangxlebar" value="15.3 cm X 20.3 cm"  class="form-control" disabled="">
                     </div>
-                  </div>    
+                  </div>     -->
                       <?php
                     }elseif($value1->kategori == 3){ 
                       $panjang_nya = str_replace('.', ',',$ket_pembelian->panjang);
@@ -212,11 +211,11 @@
                   <div class="row form-group">
                     <div class="col-md-6 mb-3 mb-md-0">
                       <label class="text-black" for="fname">Panjang</label>
-                      <input type="text" name="panjang" placeholder="Isikan Panjang Kertas | Ukuran Meter" title="Cth : 2 (2 meter panjang) / 2.5 (2.5 meter panjang)" class="form-control" required="" id="panjang" minlength="1" maxlength="3" value="<?=$panjang_nya?>" <?php if ($value->id_transaksi >= 2): ?> disabled="" <?php endif ?>>
+                      <input type="hidden" name="panjang" placeholder="Isikan Panjang Kertas | Ukuran Meter" title="Cth : 2 (2 meter panjang) / 2.5 (2.5 meter panjang)" class="form-control" required="" id="panjang" minlength="1" maxlength="3" value="<?=$panjang_nya?>" <?php if ($value->id_transaksi >= 2): ?> disabled="" <?php endif ?>>
                     </div>
                     <div class="col-md-6">
-                      <label class="text-black" for="fname">Lebar</label>
-                      <input type="text" name="lebar" placeholder="Isikan Lebar Kertas | Ukuran Meter" title="Cth : 2 (2 meter lebar) / 2.5 (2.5 meter lebar)" class="form-control" required="" id="lebar" minlength="1" maxlength="3" value="<?=$lebar_nya?>" <?php if ($value->id_transaksi >= 2): ?> disabled="" <?php endif ?>>
+                      <!-- <label class="text-black" for="fname">Lebar</label> -->
+                      <input type="hidden" name="lebar" placeholder="Isikan Lebar Kertas | Ukuran Meter" title="Cth : 2 (2 meter lebar) / 2.5 (2.5 meter lebar)" class="form-control" required="" id="lebar" minlength="1" maxlength="3" value="<?=$lebar_nya?>" <?php if ($value->id_transaksi >= 2): ?> disabled="" <?php endif ?>>
                     </div>
                     <div class="col-md-12">
                       <p style="font-style: 3px;"><i>Keterangan : Panjang X Lebar Permeter = <b>Rp . 25,000</b></i></p>
@@ -237,15 +236,15 @@
 
               <div class="row form-group">
                 <div class="col-md-12">
-                  <label class="text-black" for="email">Jumlah</label> 
-                  <input type="text" name="jumlah_kertas" class="form-control" minlength="1" maxlength="3" required="" id="jumlah_kertas" value="<?=$ket_pembelian->jumlah_kertas?>" <?php if ($value->id_transaksi >= 2): ?> disabled="" <?php endif ?>>
+                  <!-- <label class="text-black" for="email">Jumlah</label>  -->
+                  <input type="hidden" name="jumlah_kertas" class="form-control" minlength="1" maxlength="3" required="" id="jumlah_kertas" value="<?=$ket_pembelian->jumlah_kertas?>" <?php if ($value->id_transaksi >= 2): ?> disabled="" <?php endif ?>>
                 </div>
               </div>
 
               <div class="row form-group">
                 <div class="col-md-12">
-                  <label class="text-black" for="email">Harga</label> 
-                  <input type="Text" class="form-control" id="jumlah_harga" value="-Pilih Jenis Kertas Dan Isi Jumlah Kertas" disabled="">
+                  <!-- <label class="text-black" for="email">Harga</label>  -->
+                  <input type="hidden" class="form-control" id="jumlah_harga" value="2333" disabled="">
                 </div>
               </div>
 
@@ -276,22 +275,22 @@
               <?php  
                 if ($kategori == 'Undangan Nikah') { ?>
                   <div class="row form-group">
-                    <div class="col-md-6 mb-3 mb-md-0">
-                      <label class="text-black" for="fname">Nama Pertama</label>
+                    <div class="col-md-12 mb-3 mb-md-0">
+                      <label class="text-black" for="fname">Nama</label>
                       <input type="text" name="nama_pertama" placeholder="Isi Nama Mempelai Pertama" title="Isi Nama Pengantin Pertama" class="form-control" required="" value="<?=$ket_pembelian->nama_pertama?>" <?php if ($value->id_transaksi >= 2): ?> disabled="" <?php endif ?>>
                     </div>
-                    <div class="col-md-6">
-                      <label class="text-black" for="lname">Keterangan</label>
+                    <div class="col-md-12">
+                      <label class="text-black" for="lname">Materi Atau konten Yang ingin di masukan kedalam menu</label>
                       <input type="text" name="ket_nama_pertama" placeholder="cth : nama panggilan / pekerjaan , dll" title="Keterangan Untuk Pengantin Pertama / Bisa Dikosongkan" class="form-control" value="<?=$ket_pembelian->ket_nama_pertama?>" <?php if ($value->id_transaksi >= 2): ?> disabled="" <?php endif ?>>
                     </div>
                   </div>
 
                   <div class="row form-group">
-                    <div class="col-md-6 mb-3 mb-md-0">
+                    <div class="col-md-12 mb-3 mb-md-0">
                       <label class="text-black" for="fname">Nama Kedua</label>
                       <input type="text" name="nama_kedua" placeholder="Isi Nama Mempelai Kedua" title="Isi Nama Pengantin Kedua" class="form-control" required="" value="<?=$ket_pembelian->nama_kedua?>" <?php if ($value->id_transaksi >= 2): ?> disabled="" <?php endif ?>>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-12">
                       <label class="text-black" for="lname">Keterangan</label>
                       <input type="text" name="ket_nama_kedua" placeholder="cth : nama panggilan / pekerjaan , dll" title="Keterangan Untuk Pengantin Kedua / Bisa Dikosongkan" class="form-control" value="<?=$ket_pembelian->ket_nama_kedua?>" <?php if ($value->id_transaksi >= 2): ?> disabled="" <?php endif ?>>
                     </div>
@@ -299,55 +298,55 @@
 
                   <div class="row form-group">
                     <div class="col-md-12">
-                      <label class="text-black" for="email">Tanggal</label> 
-                      <input type="date" name="tanggal" title="tanggal pernikahan berlangsung" class="form-control"  required="" value="<?=$ket_pembelian->tanggal?>" <?php if ($value->id_transaksi >= 2): ?> disabled="" <?php endif ?>>
+                      <!-- <label class="text-black" for="email">Tanggal</label>  -->
+                      <input type="hidden" name="tanggal" value="test" title="tanggal pernikahan berlangsung" class="form-control"  required="" value="<?=$ket_pembelian->tanggal?>" <?php if ($value->id_transaksi >= 2): ?> disabled="" <?php endif ?>>
                     </div>
                   </div>
 
                   <div class="row form-group">
                     <div class="col-md-12">
-                      <label class="text-black" for="email">Akad</label> 
-                      <input type="text" name="akad" placeholder="cth : pukul 09:00 di gedung/rumah" title="waktu dan tempat berlangsungnya akad nikah" class="form-control"  required="" value="<?=$ket_pembelian->akad?>" <?php if ($value->id_transaksi >= 2): ?> disabled="" <?php endif ?>>
+                      <!-- <label class="text-black" for="email">Akad</label>  -->
+                      <input type="hidden" value="test" name="akad" placeholder="cth : pukul 09:00 di gedung/rumah" title="waktu dan tempat berlangsungnya akad nikah" class="form-control"  required="" value="<?=$ket_pembelian->akad?>" <?php if ($value->id_transaksi >= 2): ?> disabled="" <?php endif ?>>
                     </div>
                   </div>
 
                   <div class="row form-group">
                     <div class="col-md-12">
-                      <label class="text-black" for="email">Resepsi</label> 
-                      <input type="text" name="resepsi" placeholder="cth : pukul 09:00 di gedung/rumah" title="waktu dan tempat berlangsungnya resepsi pernikahan" class="form-control"  required="" value="<?=$ket_pembelian->resepsi?>" <?php if ($value->id_transaksi >= 2): ?> disabled="" <?php endif ?>>
+                      <!-- <label class="text-black" for="email">Resepsi</label>  -->
+                      <input type="hidden" value="test" name="resepsi" placeholder="cth : pukul 09:00 di gedung/rumah" title="waktu dan tempat berlangsungnya resepsi pernikahan" class="form-control"  required="" value="<?=$ket_pembelian->resepsi?>" <?php if ($value->id_transaksi >= 2): ?> disabled="" <?php endif ?>>
                     </div>
                   </div>
 
                   <div class="row form-group">
                     <div class="col-md-6 mb-3 mb-md-0">
-                      <label class="text-black" for="fname">Nama Orang Tua Pertama</label>
-                      <input type="text" name="nama_ortu_pertama" placeholder="Isi Nama Orang Tua Pertama" title="Isi Nama Orang Tua Pertama" class="form-control" required="" value="<?=$ket_pembelian->nama_ortu_pertama?>" <?php if ($value->id_transaksi >= 2): ?> disabled="" <?php endif ?>>
+                      <!-- <label class="text-black" for="fname">Nama Orang Tua Pertama</label> -->
+                      <input type="hidden" value="test" name="nama_ortu_pertama" placeholder="Isi Nama Orang Tua Pertama" title="Isi Nama Orang Tua Pertama" class="form-control" required="" value="<?=$ket_pembelian->nama_ortu_pertama?>" <?php if ($value->id_transaksi >= 2): ?> disabled="" <?php endif ?>>
                     </div>
                     <div class="col-md-6">
-                      <label class="text-black" for="lname">Keterangan</label>
-                      <input type="text" name="ket_ortu_pertama" placeholder="cth : pekerjaan , dll" title="Keterangan Untuk Orang Tua Pertama / Bisa Dikosongkan" class="form-control" value="<?=$ket_pembelian->ket_ortu_pertama?>" <?php if ($value->id_transaksi >= 2): ?> disabled="" <?php endif ?>>
+                      <!-- <label class="text-black" for="lname">Keterangan</label> -->
+                      <input type="hidden" value="test" name="ket_ortu_pertama" placeholder="cth : pekerjaan , dll" title="Keterangan Untuk Orang Tua Pertama / Bisa Dikosongkan" class="form-control" value="<?=$ket_pembelian->ket_ortu_pertama?>" <?php if ($value->id_transaksi >= 2): ?> disabled="" <?php endif ?>>
                     </div>
                   </div>
 
                   <div class="row form-group">
                     <div class="col-md-6 mb-3 mb-md-0">
-                      <label class="text-black" for="fname">Nama Orang Tua Kedua</label>
-                      <input type="text" name="nama_ortu_kedua" placeholder="Isi Nama Orang Tua Pertama" title="Isi Nama Orang Tua Kedua" class="form-control" required="" value="<?=$ket_pembelian->nama_ortu_kedua?>" <?php if ($value->id_transaksi >= 2): ?> disabled="" <?php endif ?>>
+                      <!-- <label class="text-black" for="fname">Nama Orang Tua Kedua</label> -->
+                      <input type="hidden" value="test" name="nama_ortu_kedua" placeholder="Isi Nama Orang Tua Pertama" title="Isi Nama Orang Tua Kedua" class="form-control" required="" value="<?=$ket_pembelian->nama_ortu_kedua?>" <?php if ($value->id_transaksi >= 2): ?> disabled="" <?php endif ?>>
                     </div>
                     <div class="col-md-6">
-                      <label class="text-black" for="lname">Keterangan</label>
-                      <input type="text" name="ket_ortu_kedua" placeholder="cth : pekerjaan , dll" title="Keterangan Untuk Orang Tua Kedua / Bisa Dikosongkan" class="form-control" value="<?=$ket_pembelian->ket_ortu_kedua?>" <?php if ($value->id_transaksi >= 2): ?> disabled="" <?php endif ?>>
+                      <!-- <label class="text-black" for="lname">Keterangan</label> -->
+                      <input type="hidden" value="test" name="ket_ortu_kedua" placeholder="cth : pekerjaan , dll" title="Keterangan Untuk Orang Tua Kedua / Bisa Dikosongkan" class="form-control" value="<?=$ket_pembelian->ket_ortu_kedua?>" <?php if ($value->id_transaksi >= 2): ?> disabled="" <?php endif ?>>
                     </div>
                   </div>
 
                   <div class="row form-group">
                     <div class="col-md-6 mb-3 mb-md-0">
-                      <label class="text-black" for="fname">Nama Keluarga Yang Mengundang</label>
-                      <input type="text" name="nama_keluarga_mengundang" placeholder="Isi Nama Orang Tua Pertama" title="Isi Nama Orang Tua Kedua" class="form-control" value="<?=$ket_pembelian->nama_keluarga_mengundang?>" <?php if ($value->id_transaksi >= 2): ?> disabled="" <?php endif ?>>
+                      <!-- <label class="text-black" for="fname">Nama Keluarga Yang Mengundang</label> -->
+                      <input type="hidden" value="test" name="nama_keluarga_mengundang" placeholder="Isi Nama Orang Tua Pertama" title="Isi Nama Orang Tua Kedua" class="form-control" value="<?=$ket_pembelian->nama_keluarga_mengundang?>" <?php if ($value->id_transaksi >= 2): ?> disabled="" <?php endif ?>>
                     </div>
                     <div class="col-md-6">
-                      <label class="text-black" for="lname">Keterangan</label>
-                      <input type="text" name="ket_keluarga_mengundang" placeholder="cth : pekerjaan , dll" title="Keterangan Untuk Keluarga Mengundang / Bisa Dikosongkan" class="form-control" value="<?=$ket_pembelian->ket_keluarga_mengundang?>" <?php if ($value->id_transaksi >= 2): ?> disabled="" <?php endif ?>>
+                      <!-- <label class="text-black" for="lname">Keterangan</label> -->
+                      <input type="hidden" value="test" name="ket_keluarga_mengundang" placeholder="cth : pekerjaan , dll" title="Keterangan Untuk Keluarga Mengundang / Bisa Dikosongkan" class="form-control" value="<?=$ket_pembelian->ket_keluarga_mengundang?>" <?php if ($value->id_transaksi >= 2): ?> disabled="" <?php endif ?>>
                     </div>
                   </div> 
 
@@ -434,22 +433,29 @@
 
                   <div class="row form-group">
                     <div class="col-md-12">
-                      <label class="text-black" for="email">Pekerjaan</label> 
-                      <input type="text" name="pekerjaan" placeholder="Isikan Pekerjaan | Bisa Dikosongkan" title="Isikan Pekerjaan | Bisa Dikosongkan" class="form-control"  required="" value="<?=$ket_pembelian->pekerjaan?>" <?php if ($value->id_transaksi >= 2): ?> disabled="" <?php endif ?>>
+                      <label class="text-black" for="email">tema</label> 
+                      <input type="text" name="pekerjaan" placeholder="Isikan Pekerjaan | Bisa Dikosongkan" title="Isikan Pekerjaan | Bisa Dikosongkan" class="form-control"  required="" value="<?=$ket_pembelian->tema?>" <?php if ($value->id_transaksi >= 2): ?> disabled="" <?php endif ?>>
                     </div>
                   </div>
 
                   <div class="row form-group">
                     <div class="col-md-12">
-                      <label class="text-black" for="email">Alamat</label> 
-                      <input type="text" name="alamat_data" placeholder="Isikan Alamat | Bisa Dikosongkan" title="Isikan Alamat | Bisa Dikosongkan" class="form-control"  required="" value="<?=$ket_pembelian->alamat_data?>" <?php if ($value->id_transaksi >= 2): ?> disabled="" <?php endif ?>>
+                      <label class="text-black" for="email">warna</label> 
+                      <input type="text" name="alamat_data" placeholder="Isikan Alamat | Bisa Dikosongkan" title="Isikan Alamat | Bisa Dikosongkan" class="form-control"  required="" value="<?=$ket_pembelian->warna?>" <?php if ($value->id_transaksi >= 2): ?> disabled="" <?php endif ?>>
                     </div>
                   </div>
 
                   <div class="row form-group">
                     <div class="col-md-12">
-                      <label class="text-black" for="email">Media Sosial</label> 
-                      <input type="text" name="media_sosial" placeholder="Cth Facebook, Instagram, dll | Bisa Dikosongkan" title="Isikan Media SOsial | Bisa Dikosongkan" class="form-control"  required="" value="<?=$ket_pembelian->media_sosial?>" <?php if ($value->id_transaksi >= 2): ?> disabled="" <?php endif ?>>
+                      <label class="text-black" for="email">Target Audients</label> 
+                      <input type="text" name="media_sosial" placeholder="Cth Facebook, Instagram, dll | Bisa Dikosongkan" title="Isikan Media SOsial | Bisa Dikosongkan" class="form-control"  required="" value="<?=$ket_pembelian->target_audients?>" <?php if ($value->id_transaksi >= 2): ?> disabled="" <?php endif ?>>
+                    </div>
+                  </div>
+
+                  <div class="row form-group">
+                    <div class="col-md-12">
+                      <label class="text-black" for="email">Ukuran</label> 
+                      <input type="text" name="media_sosial" placeholder="Cth Facebook, Instagram, dll | Bisa Dikosongkan" title="Isikan Media SOsial | Bisa Dikosongkan" class="form-control"  required="" value="<?=$ket_pembelian->ukutan?>" <?php if ($value->id_transaksi >= 2): ?> disabled="" <?php endif ?>>
                     </div>
                   </div>
 
@@ -477,38 +483,38 @@
 
                   <div class="row form-group">
                     <div class="col-md-12">
-                      <label class="text-black" for="email">Tanggal</label> 
-                      <input type="date" name="tanggal"  title="Isikan Tanggal | Bisa Dikosongkan" class="form-control"  value="<?=$ket_pembelian->tanggal?>" <?php if ($value->id_transaksi >= 2): ?> disabled="" <?php endif ?>>
+                      <label class="text-black" for="email">Slogan</label> 
+                      <input type="text" name="tanggal"  title="Isikan Tanggal | Bisa Dikosongkan" class="form-control"  value="<?=$ket_pembelian->slogan?>" <?php if ($value->id_transaksi >= 2): ?> disabled="" <?php endif ?>>
                     </div>
                   </div>
+
+                  <!-- <div class="row form-group">
+                    <div class="col-md-12">
+                      <label class="text-black" for="email">Harga</label> 
+                      <input type="text" name="waktu"  title="Isikan Waktu | Bisa Dikosongkan" class="form-control"  value="<?=$ket_pembelian->waktu?>" <?php if ($value->id_transaksi >= 2): ?> disabled="" <?php endif ?>>
+                    </div>
+                  </div> -->
 
                   <div class="row form-group">
                     <div class="col-md-12">
-                      <label class="text-black" for="email">Waktu</label> 
-                      <input type="time" name="waktu"  title="Isikan Waktu | Bisa Dikosongkan" class="form-control"  value="<?=$ket_pembelian->waktu?>" <?php if ($value->id_transaksi >= 2): ?> disabled="" <?php endif ?>>
+                      <label class="text-black" for="email">Rekomendasi Warna</label> 
+                      <input type="text" name="alamat_data" placeholder="Isikan Alamat | Bisa Dikosongkan" title="Isikan Alamat | Bisa Dikosongkan" class="form-control"  required=""  value="<?=$ket_pembelian->rekomendasi_warna?>" <?php if ($value->id_transaksi >= 2): ?> disabled="" <?php endif ?>>
                     </div>
                   </div>
 
-                  <div class="row form-group">
-                    <div class="col-md-12">
-                      <label class="text-black" for="email">Alamat</label> 
-                      <input type="text" name="alamat_data" placeholder="Isikan Alamat | Bisa Dikosongkan" title="Isikan Alamat | Bisa Dikosongkan" class="form-control"  required=""  value="<?=$ket_pembelian->alamat_data?>" <?php if ($value->id_transaksi >= 2): ?> disabled="" <?php endif ?>>
-                    </div>
-                  </div>
-
-                  <div class="row form-group">
+                  <!-- <div class="row form-group">
                     <div class="col-md-12">
                       <label class="text-black" for="email">No Telepon</label> 
                       <input type="text" name="no_telpon" placeholder="Isikan No Telepon | Bisa Dikosongkan" title="Isikan No Telepon | Bisa Dikosongkan" class="form-control"  required=""  value="<?=$ket_pembelian->no_telpon?>" <?php if ($value->id_transaksi >= 2): ?> disabled="" <?php endif ?>>
                     </div>
-                  </div>
+                  </div> -->
 
-                  <div class="row form-group">
+                  <!-- <div class="row form-group">
                     <div class="col-md-12">
                       <label class="text-black" for="email">Email / Media Sosial</label> 
                       <input type="text" name="media_sosial" placeholder="Cth Email,Facebook, Instagram, dll | Bisa Dikosongkan" title="Isikan Email / Media Sosial | Bisa Dikosongkan" class="form-control"  required=""  value="<?=$ket_pembelian->media_sosial?>" <?php if ($value->id_transaksi >= 2): ?> disabled="" <?php endif ?>>
                     </div>
-                  </div>
+                  </div> -->
 
                   <div class="row form-group">
                     <div class="col-md-12">

@@ -25,7 +25,7 @@ class Home extends CI_Controller {
 	public function portfolio()
 	{
 		
-		$this->load->view('/home/portfolio');
+		$this->load->view('home/portfolio');
 	}
 
 	function project()

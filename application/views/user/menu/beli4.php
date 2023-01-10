@@ -22,7 +22,7 @@
               <div class="h-entry">
                 <center><img src="<?=base_url($ket->img)?>" alt="Image" class="img-fluid">
                 <!-- <h2 class="font-size-regular"><a href="#">Warehousing Your Packages</a></h2> -->
-                <div class="meta mb-4"><span class="mx-2"></span><b></b> / Upload &bullet; <?=$value->tanggal_upload?><span class="mx-2">&bullet;</span> <br><b>Harga Desain</b> : Rp. <?=number_format($ket->harga)?></div></center>
+                <div class="meta mb-4"><span class="mx-2"></span><b><?=$kategori?></b> / Upload &bullet; <?=$value->tanggal_upload?><span class="mx-2">&bullet;</span> <br><b>Harga Per Desain</b> : Rp. <?=number_format($ket->harga)?></div></center>
               </div> 
             </div>
           </div> 
@@ -34,7 +34,6 @@
           <form class="col-md-8 mb-5" id="ini_formnya" method="post">
             <div class="p-4 bg-white">
               <h2 class="h4 text-black mb-3">Form Pembelian</h2>
-              <?php if($value->kategori != 2   ) :?>
               <div class="row form-group">
                 <div class="col-md-12">
                   <div id="ubah_sini"></div>
@@ -42,19 +41,19 @@
                   <input class="form-control"  type="file" id='files' name="files[]"onchange="previewImage();" multiple>
                 </div>
               </div> 
-              <?php endif ?>
+              
               <?php  
                 if ($value->kategori != 3) { ?>
                   <div class="row form-group">
                     <div class="col-md-12">
-                      <!-- <label class="text-black" for="email">Jenis Kertas</label>  -->
-                      <select  class="form-control" name="jenis_kertas" id="jenis_kertas" required hidden>
-                        <!-- <option selected="" value="" disabled="">-Silahkan Pilih Jenis Kertas</option> -->
+                      <label class="text-black" for="email">Jenis Kertas</label> 
+                      <select class="form-control" name="jenis_kertas" id="jenis_kertas" required>
+                        <option selected="" value="" disabled="">-Silahkan Pilih Jenis Kertas</option>
                           <?php  
                             if ($value->kategori == 1) { ?>
                         <option value="4000">Art Paper | Rp. 4,000 / 1 pcs</option>
-                        <!-- <option value="3000">Jasmine | Rp. 3,000 / 1 pcs</option>
-                        <option value="1000">Cartoon | Rp. 1,000 / 1 pcs</option>       -->
+                        <option value="3000">Jasmine | Rp. 3,000 / 1 pcs</option>
+                        <option value="1000">Cartoon | Rp. 1,000 / 1 pcs</option>      
                             <?php }elseif ($value->kategori == 2) { ?>
                         <option value="25000">PVC | Rp. 25,000 / 1 pcs</option>
                         <option value="1000">Photopaper | Rp. 1,000 / 1 pcs</option>
@@ -67,12 +66,12 @@
                   </div>    
                       <?php
                     }elseif ($value->kategori == 3) { ?>
-                  <!-- <div class="row form-group">
+                  <div class="row form-group">
                     <div class="col-md-12">
                       <label class="text-black" for="email">Jenis Kertas</label> 
                       <input type="text" name="" disabled="" value="Vinyl" class="form-control">
                     </div>
-                  </div>     -->
+                  </div>    
                   <?php
                 }
               ?>
@@ -80,35 +79,35 @@
 
               <?php  
                 if ($value->kategori == 1) { ?>
-                  <!-- <div class="row form-group">
+                  <div class="row form-group">
                     <div class="col-md-12">
                       <label class="text-black" for="email">Panjang X Lebar</label> 
                       <input type="text" name="panjangxlebar" value="15.3 cm X 20.3 cm"  class="form-control" disabled="">
                     </div>
-                  </div>     -->
+                  </div>    
                       <?php
                 }elseif($value->kategori == 3){ ?>
                   <div class="row form-group">
-                    <div class="col-md-12 mb-3 mb-md-0">
-                      <!-- <label class="text-black" for="fname">Nama</label> -->
-                      <input type="hidden" name="panjang" value="2" placeholder="Isikan Panjang Kertas | Ukuran Meter" title="Cth : 2 (2 meter panjang) / 2.5 (2.5 meter panjang)" class="form-control" required="" id="panjang" minlength="1" maxlength="2">
+                    <div class="col-md-6 mb-3 mb-md-0">
+                      <label class="text-black" for="fname">Panjang</label>
+                      <input type="text" name="panjang" placeholder="Isikan Panjang Kertas | Ukuran Meter" title="Cth : 2 (2 meter panjang) / 2.5 (2.5 meter panjang)" class="form-control" required="" id="panjang" minlength="1" maxlength="2">
+                    </div>
+                    <div class="col-md-6">
+                      <label class="text-black" for="fname">Lebar</label>
+                      <input type="text" name="lebar" placeholder="Isikan Lebar Kertas | Ukuran Meter" title="Cth : 2 (2 meter lebar) / 2.5 (2.5 meter lebar)" class="form-control" required="" id="lebar" minlength="1" maxlength="2">
                     </div>
                     <div class="col-md-12">
-                      <!-- <label class="text-black" for="fname">No_wa</label> -->
-                      <input type="hidden" name="lebar" value="2" placeholder="Isikan Lebar Kertas | Ukuran Meter" title="Cth : 2 (2 meter lebar) / 2.5 (2.5 meter lebar)" class="form-control" required="" id="lebar" minlength="1" maxlength="2">
-                    </div>
-                    <div class="col-md-12">
-                      <!-- <p style="font-style: 3px;"><i>Keterangan : Panjang X Lebar Permeter = <b>Rp . 25,000</b></i></p> -->
+                      <p style="font-style: 3px;"><i>Keterangan : Panjang X Lebar Permeter = <b>Rp . 25,000</b></i></p>
                     </div>
                   </div>
                       <?php
                 }elseif ($value->kategori == 2) { ?>
-                  <!-- <div class="row form-group">
+                  <div class="row form-group">
                     <div class="col-md-12">
                       <label class="text-black" for="email">Panjang X Lebar</label> 
                       <input type="text" name="panjangxlebar" value="5.3 cm X 8.8 cm"  class="form-control" disabled="">
                     </div>
-                  </div>       -->
+                  </div>      
                   <?php
                 }
               ?>
@@ -116,22 +115,22 @@
 
               <div class="row form-group">
                 <div class="col-md-12">
-                  <!-- <label class="text-black" for="email">Jumlah</label>  -->
-                  <input type="hidden" name="jumlah_kertas" value="2" placeholder="Isikan Nama Usha Anda" class="form-control" required="" id="jumlah_kertas">
+                  <label class="text-black" for="email">Jumlah</label> 
+                  <input type="text" name="jumlah_kertas" class="form-control" minlength="1" maxlength="3" required="" id="jumlah_kertas">
                 </div>
               </div>
 
-              <!-- <div class="row form-group">
+              <div class="row form-group">
                 <div class="col-md-12">
                   <label class="text-black" for="email">Harga</label> 
-                  <input type="Text" class="form-control"  value="-Pilih Jenis Kertas Dan Isi Jumlah Kertas" disabled="">
+                  <input type="Text" class="form-control" id="jumlah_harga" value="-Pilih Jenis Kertas Dan Isi Jumlah Kertas" disabled="">
                 </div>
-              </div> -->
+              </div>
 
               <div class="row form-group">
                 <div class="col-md-12">
-                  <label class="text-black" for="email">Alamat Email</label>
-                  <input type="text" class="form-control" name="alamat" required="" value="<?=$data_pembeli['email']?>">
+                  <label class="text-black" for="email">Alamat Pengiriman</label>
+                  <input type="text" class="form-control" name="alamat" required="" value="<?=$data_pembeli['alamat']?>">
                 </div>
               </div>
 
@@ -157,112 +156,80 @@
               <?php  
                 if ($kategori == 'Undangan Nikah') { ?>
                   <div class="row form-group">
-                    <div class="col-md-12 mb-3 mb-md-0">
-                      <!-- <label class="text-black" for="fname">Nama Pertama</label> -->
-                      <input type="hidden" name="nama_pertama" placeholder="Isi Nama Mempelai Pertama" value="<?= $data_pembeli["alamat"]?>" title="Isi Nama Pengantin Pertama" class="form-control" required="">
-                    </div>
-                    <div class="col-md-12">
-                      <label class="text-black" for="lname">Nama</label>
-                      <input type="text" name="ket_nama_pertama" placeholder="Isikan nama anda" title="Keterangan Untuk Pengantin Pertama / Bisa Dikosongkan" class="form-control">
-                    </div>
-                  </div>
-
-                  <div class="row form-group">
-                    <div class="col-md-12 mb-3 mb-md-0">
-                      <!-- <label class="text-black" for="fname">Nama Kedua</label> -->
-                      <input type="hidden" name="nama_kedua" value="test" placeholder="Isi Nama Mempelai Kedua" title="Isi Nama Pengantin Kedua" class="form-control" required="">
-                    </div>
-                    <div class="col-md-12">
-                      <label class="text-black" for="lname">Materi atau konten yang indin di masukan kedalam menu</label>
-                      <textarea name="ket_nama_kedua" id="message" cols="30" rows="7" class="form-control" placeholder="Tuliskan Materi atau konten Yang Ingin Ditambah Pada Desain" title="Keterangan yang ingin ditambah pada desain / bisa dikosongkan"></textarea>
-                    </div>
-                  </div>
-
-                  <div class="row form-group">
-                    <div class="col-md-12">
-                      <label class="text-black" for="email">Media Sosial</label> 
-                      <input type="text" name="tanggal" placeholder="Isikan Media Sosial anda" title="tanggal pernikahan berlangsung" class="form-control"  required="">
-                    </div>
-                  </div>
-
-                  <div class="row form-group">
-                    <div class="col-md-12">
-                      <!-- <label class="text-black" for="email">Akad</label>  -->
-                      <input type="hidden" value="testjuga" name="akad" placeholder="cth : pukul 09:00 di gedung/rumah" title="waktu dan tempat berlangsungnya akad nikah" class="form-control"  required="">
-                    </div>
-                  </div>
-
-                  <!-- <div class="row form-group">
-                    <div class="col-md-12"> -->
-                      <!-- <label class="text-black" for="email">Resepsi</label>  -->
-                      <input type="hidden" value="test" name="resepsi" placeholder="cth : pukul 09:00 di gedung/rumah" title="waktu dan tempat berlangsungnya resepsi pernikahan" class="form-control"  required="">
-                    <!-- </div>
-                  </div> -->
-
-                  <!-- <div class="row form-group">
-                    <div class="col-md-6 mb-3 mb-md-0"> -->
-                      <!-- <label class="text-black" for="fname">Nama Orang Tua Pertama</label> -->
-                      <input type="hidden" value="test" name="nama_ortu_pertama" placeholder="Isi Nama Orang Tua Pertama" title="Isi Nama Orang Tua Pertama" class="form-control" required="">
-                    <!-- </div> -->
-                    <!-- <div class="col-md-6"> -->
-                      <!-- <label class="text-black" for="lname">Keterangan</label> -->
-                      <input type="hidden" value="test" name="ket_ortu_pertama" placeholder="cth : pekerjaan , dll" title="Keterangan Untuk Orang Tua Pertama / Bisa Dikosongkan" class="form-control">
-                    <!-- </div>
-                  </div> -->
-
-                  <!-- <div class="row form-group">
                     <div class="col-md-6 mb-3 mb-md-0">
-                      <label class="text-black" for="fname">Nama Orang Tua Kedua</label> -->
-                      <input type="hidden" value="test" name="nama_ortu_kedua" placeholder="Isi Nama Orang Tua Pertama" title="Isi Nama Orang Tua Kedua" class="form-control" required="">
-                    <!-- </div> -->
-                    <!-- <div class="col-md-6"> -->
-                      <!-- <label class="text-black" for="lname">Keterangan</label> -->
-                      <input type="hidden" value="test" name="ket_ortu_kedua" placeholder="cth : pekerjaan , dll" title="Keterangan Untuk Orang Tua Kedua / Bisa Dikosongkan" class="form-control">
-                    <!-- </div>
-                  </div> -->
+                      <label class="text-black" for="fname">Nama Pertama</label>
+                      <input type="text" name="nama_pertama" placeholder="Isi Nama Mempelai Pertama" title="Isi Nama Pengantin Pertama" class="form-control" required="">
+                    </div>
+                    <div class="col-md-6">
+                      <label class="text-black" for="lname">Keterangan</label>
+                      <input type="text" name="ket_nama_pertama" placeholder="cth : nama panggilan / pekerjaan , dll" title="Keterangan Untuk Pengantin Pertama / Bisa Dikosongkan" class="form-control">
+                    </div>
+                  </div>
 
-                  <!-- <div class="row form-group"> -->
-                    <!-- <div class="col-md-6 mb-3 mb-md-0">
-                      <label class="text-black" for="fname">Nama Keluarga Yang Mengundang</label> -->
-                      <input type="hidden" value="test" name="nama_keluarga_mengundang" placeholder="Isi Nama Orang Tua Pertama" title="Isi Nama Orang Tua Kedua" class="form-control">
-                    <!-- </div>
-                    <div class="col-md-6"> -->
-                      <!-- <label class="text-black" for="lname">Keterangan</label> -->
-                      <input type="hidden" value="test" name="ket_keluarga_mengundang" placeholder="cth : pekerjaan , dll" title="Keterangan Untuk Keluarga Mengundang / Bisa Dikosongkan" class="form-control">
-                    <!-- </div>
+                  <div class="row form-group">
+                    <div class="col-md-6 mb-3 mb-md-0">
+                      <label class="text-black" for="fname">Nama Kedua</label>
+                      <input type="text" name="nama_kedua" placeholder="Isi Nama Mempelai Kedua" title="Isi Nama Pengantin Kedua" class="form-control" required="">
+                    </div>
+                    <div class="col-md-6">
+                      <label class="text-black" for="lname">Keterangan</label>
+                      <input type="text" name="ket_nama_kedua" placeholder="cth : nama panggilan / pekerjaan , dll" title="Keterangan Untuk Pengantin Kedua / Bisa Dikosongkan" class="form-control">
+                    </div>
+                  </div>
+
+                  <div class="row form-group">
+                    <div class="col-md-12">
+                      <label class="text-black" for="email">Tanggal</label> 
+                      <input type="date" name="tanggal" title="tanggal pernikahan berlangsung" class="form-control"  required="">
+                    </div>
+                  </div>
+
+                  <div class="row form-group">
+                    <div class="col-md-12">
+                      <label class="text-black" for="email">Akad</label> 
+                      <input type="text" name="akad" placeholder="cth : pukul 09:00 di gedung/rumah" title="waktu dan tempat berlangsungnya akad nikah" class="form-control"  required="">
+                    </div>
+                  </div>
+
+                  <div class="row form-group">
+                    <div class="col-md-12">
+                      <label class="text-black" for="email">Resepsi</label> 
+                      <input type="text" name="resepsi" placeholder="cth : pukul 09:00 di gedung/rumah" title="waktu dan tempat berlangsungnya resepsi pernikahan" class="form-control"  required="">
+                    </div>
+                  </div>
+
+                  <div class="row form-group">
+                    <div class="col-md-6 mb-3 mb-md-0">
+                      <label class="text-black" for="fname">Nama Orang Tua Pertama</label>
+                      <input type="text" name="nama_ortu_pertama" placeholder="Isi Nama Orang Tua Pertama" title="Isi Nama Orang Tua Pertama" class="form-control" required="">
+                    </div>
+                    <div class="col-md-6">
+                      <label class="text-black" for="lname">Keterangan</label>
+                      <input type="text" name="ket_ortu_pertama" placeholder="cth : pekerjaan , dll" title="Keterangan Untuk Orang Tua Pertama / Bisa Dikosongkan" class="form-control">
+                    </div>
+                  </div>
+
+                  <div class="row form-group">
+                    <div class="col-md-6 mb-3 mb-md-0">
+                      <label class="text-black" for="fname">Nama Orang Tua Kedua</label>
+                      <input type="text" name="nama_ortu_kedua" placeholder="Isi Nama Orang Tua Pertama" title="Isi Nama Orang Tua Kedua" class="form-control" required="">
+                    </div>
+                    <div class="col-md-6">
+                      <label class="text-black" for="lname">Keterangan</label>
+                      <input type="text" name="ket_ortu_kedua" placeholder="cth : pekerjaan , dll" title="Keterangan Untuk Orang Tua Kedua / Bisa Dikosongkan" class="form-control">
+                    </div>
+                  </div>
+
+                  <div class="row form-group">
+                    <div class="col-md-6 mb-3 mb-md-0">
+                      <label class="text-black" for="fname">Nama Keluarga Yang Mengundang</label>
+                      <input type="text" name="nama_keluarga_mengundang" placeholder="Isi Nama Orang Tua Pertama" title="Isi Nama Orang Tua Kedua" class="form-control">
+                    </div>
+                    <div class="col-md-6">
+                      <label class="text-black" for="lname">Keterangan</label>
+                      <input type="text" name="ket_keluarga_mengundang" placeholder="cth : pekerjaan , dll" title="Keterangan Untuk Keluarga Mengundang / Bisa Dikosongkan" class="form-control">
+                    </div>
                   </div> 
-                                     -->
-                  <div class="row form-group">
-                <div class="col-md-12">
-                  <div id="ubah_sini"></div>
-                  <label class="text-black" for="email">Masukan Logo </label> 
-                  <input class="form-control"  type="file" id='files' name="files[]"onchange="previewImage();" multiple>
-                </div>
-              </div> 
-                                
-                  <div class="row form-group">
-                <div class="col-md-12">
-                  <div id="ubah_sini"></div>
-                  <label class="text-black" for="email">Gambar 1</label> 
-                  <input class="form-control"  type="file" id='files' name="files[]"onchange="previewImage();" multiple>
-                </div>
-              </div> 
-                                
-                  <div class="row form-group">
-                <div class="col-md-12">
-                  <div id="ubah_sini"></div>
-                  <label class="text-black" for="email">Gambar 2</label> 
-                  <input class="form-control"  type="file" id='files' name="files[]"onchange="previewImage();" multiple>
-                </div>
-              </div> 
-                  
-                  <div class="row form-group">
-                <div class="col-md-12">
-                  <div id="ubah_sini"></div>
-                  <label class="text-black" for="email">Referensi Desain (opsional)</label> 
-                  <input class="form-control"  type="file" id='files' name="files[]"onchange="previewImage();" multiple>
-                </div>
-              </div> 
 
                   <div class="row form-group">
                     <div class="col-md-12">
@@ -337,63 +304,34 @@
                       <input type="text" name="nama" placeholder="Isikan Nama" title="Isikan Nama" class="form-control"  required="">
                     </div>
                   </div>
-                  
 
                   <div class="row form-group">
                     <div class="col-md-12">
                       <label class="text-black" for="email">No Telepon</label> 
-                      <input type="text" name="no_telpon" value="<?= $data_pembeli["no_telpon"]?>" placeholder="Isikan No Telepon | Bisa Dikosongkan" title="Isikan No Telepon | Bisa Dikosongkan" class="form-control"  required="" minlength="11" maxlength="13" id="no_telpon">
+                      <input type="text" name="no_telpon" placeholder="Isikan No Telepon | Bisa Dikosongkan" title="Isikan No Telepon | Bisa Dikosongkan" class="form-control"  required="" minlength="11" maxlength="13" id="no_telpon">
                     </div>
                   </div>
 
                   <div class="row form-group">
                     <div class="col-md-12">
-                      <label class="text-black" for="email">Tema</label> 
-                      <input type="text" name="tema" placeholder="Isiskan Tema" title="Isikan Pekerjaan | Bisa Dikosongkan" class="form-control"  required="">
+                      <label class="text-black" for="email">Pekerjaan</label> 
+                      <input type="text" name="pekerjaan" placeholder="Isikan Pekerjaan | Bisa Dikosongkan" title="Isikan Pekerjaan | Bisa Dikosongkan" class="form-control"  required="">
                     </div>
                   </div>
 
                   <div class="row form-group">
                     <div class="col-md-12">
-                      <label class="text-black" for="email">Warna *</label> 
-                      <input type="text" name="warna" placeholder="Isikan Warna"  class="form-control"  required="">
-                    </div>
-                  </div>
-                  <div class="row form-group">
-                    <div class="col-md-12">
-                      <label class="text-black" for="email">Target Audients</label> 
-                      <input type="text" name="target_audients" placeholder="Target audients" title="Isikan Alamat | Bisa Dikosongkan" class="form-control"  required="">
+                      <label class="text-black" for="email">Alamat</label> 
+                      <input type="text" name="alamat_data" placeholder="Isikan Alamat | Bisa Dikosongkan" title="Isikan Alamat | Bisa Dikosongkan" class="form-control"  required="">
                     </div>
                   </div>
 
                   <div class="row form-group">
                     <div class="col-md-12">
-                      <label class="text-black" for="email">Ukuran Brosur</label> 
-                      <input type="text" name="ukutan" placeholder="" title="Isikan Ukurusan browsur" class="form-control"  required="">
+                      <label class="text-black" for="email">Media Sosial</label> 
+                      <input type="text" name="media_sosial" placeholder="Cth Facebook, Instagram, dll | Bisa Dikosongkan" title="Isikan Media SOsial | Bisa Dikosongkan" class="form-control"  required="">
                     </div>
                   </div>
-
-                  <div class="row form-group">
-                <div class="col-md-12">
-                  <div id="ubah_sini"></div>
-                  <label class="text-black" for="email">Upload Logo</label> 
-                  <input class="form-control"  type="file" id='files' name="files[]"onchange="previewImage();" multiple required>
-                </div>
-              </div> 
-                  <div class="row form-group">
-                <div class="col-md-12">
-                  <div id="ubah_sini"></div>
-                  <label class="text-black" for="email">Masukan Gambar 1 Konten (opsional)</label> 
-                  <input class="form-control"  type="file" id='files' name="files[]"onchange="previewImage();" multiple>
-                </div>
-              </div> 
-               <div class="row form-group">
-                <div class="col-md-12">
-                  <div id="ubah_sini"></div>
-                  <label class="text-black" for="email">Masukan Gambar 2 Konten (opsional)</label> 
-                  <input class="form-control"  type="file" id='files' name="files[]"onchange="previewImage();" multiple>
-                </div>
-              </div> 
 
                   <div class="row form-group">
                     <div class="col-md-12">
@@ -412,57 +350,49 @@
 
                   <div class="row form-group">
                     <div class="col-md-12">
-                      <label class="text-black" for="email">Tema Logo</label> 
-                      <input type="text" name="tema" placeholder="Isikan Tema Logo" title="Isikan Tema Logo" class="form-control"  required="">
+                      <label class="text-black" for="email">Tema</label> 
+                      <input type="text" name="tema" placeholder="Isikan Tema Spanduk" title="Isikan Tema Spanduk" class="form-control"  required="">
                     </div>
                   </div>
 
                   <div class="row form-group">
                     <div class="col-md-12">
-                      <label class="text-black" for="email">Slogan</label> 
-                      <input type="text" name="slogan" placeholder="Isikan Slogan usaha/bisnis anda"  title="Isikan Tanggal | Bisa Dikosongkan" class="form-control required">
+                      <label class="text-black" for="email">Tanggal</label> 
+                      <input type="date" name="tanggal"  title="Isikan Tanggal | Bisa Dikosongkan" class="form-control">
                     </div>
                   </div>
 
                   <div class="row form-group">
                     <div class="col-md-12">
-                      <label class="text-black" for="email">Rekomendasi Warna</label> 
-                      <input type="text" name="rekomendasi_warna"   placeholder="Isikan Rekomendasi warna" class="form-control" required>
+                      <label class="text-black" for="email">Waktu</label> 
+                      <input type="time" name="waktu"  title="Isikan Waktu | Bisa Dikosongkan" class="form-control">
                     </div>
                   </div>
 
                   <div class="row form-group">
-                <div class="col-md-12">
-                  <div id="ubah_sini"></div>
-                  <label class="text-black" for="email">Referensi Desain (opsional)</label> 
-                  <input class="form-control"  type="file" id='files' name="files[]"onchange="previewImage();" multiple>
-                </div>
-              </div> 
-
-                  <!-- <div class="row form-group">
                     <div class="col-md-12">
                       <label class="text-black" for="email">Alamat</label> 
                       <input type="text" name="alamat_data" placeholder="Isikan Alamat | Bisa Dikosongkan" title="Isikan Alamat | Bisa Dikosongkan" class="form-control"  required="">
                     </div>
-                  </div> -->
+                  </div>
 
-                  <!-- <div class="row form-group">
+                  <div class="row form-group">
                     <div class="col-md-12">
                       <label class="text-black" for="email">No Telepon</label> 
                       <input type="text" name="no_telpon" placeholder="Isikan No Telepon | Bisa Dikosongkan" title="Isikan No Telepon | Bisa Dikosongkan" class="form-control"  required="">
                     </div>
-                  </div> -->
+                  </div>
 
-                  <!-- <div class="row form-group">
+                  <div class="row form-group">
                     <div class="col-md-12">
                       <label class="text-black" for="email">Email / Media Sosial</label> 
                       <input type="text" name="media_sosial" placeholder="Cth Email,Facebook, Instagram, dll | Bisa Dikosongkan" title="Isikan Email / Media Sosial | Bisa Dikosongkan" class="form-control"  required="">
                     </div>
-                  </div> -->
+                  </div>
 
                   <div class="row form-group">
                     <div class="col-md-12">
-                      <label class="text-black" for="message">Penambahan Keterangan (opsional)</label> 
+                      <label class="text-black" for="message">Penambahan Keterangan</label> 
                       <textarea name="penambahan_ket" id="message" cols="30" rows="7" class="form-control" placeholder="Tuliskan Keterangan Yang Ingin Ditambah Pada Desain" title="Keterangan yang ingin ditambah pada desain / bisa dikosongkan"></textarea>
                     </div>
                   </div>    

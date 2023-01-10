@@ -288,14 +288,14 @@
               <div class="row form-group">
                 <div class="col-md-12">
                   <label class="text-black" for="email">Alamat</label> 
-                  <input type="text" title="Alamat" class="form-control" disabled="" value="<?php if($ket_pembelian->alamat_data != ''){ echo $ket_pembelian->alamat_data;}else{ echo "-";} ?>">
+                  <input type="text" title="Alamat" class="form-control" disabled="" value="<?php if($ket_pembelian->alamat != ''){ echo $ket_pembelian->alamat;}else{ echo "-";} ?>">
                 </div>
               </div>
 
               <div class="row form-group">
                 <div class="col-md-12">
                   <label class="text-black" for="email">Media Sosial</label> 
-                  <input type="text" title="Media Sosial" class="form-control" disabled="" value="<?php if($ket_pembelian->media_sosial != ''){ echo $ket_pembelian->media_sosial;}else{ echo "-";} ?>">
+                  <input type="text" title="Media Sosial" class="form-control" disabled="" value="<?php if($ket_pembelian->warna != ''){ echo $ket_pembelian->warna;}else{ echo "-";} ?>">
                 </div>
               </div>
 
@@ -330,8 +330,8 @@
 
               <div class="row form-group">
                 <div class="col-md-12">
-                  <label class="text-black" for="email">Waktu</label> 
-                  <input type="time"  title="Waktu" class="form-control" disabled="" value="<?php if($ket_pembelian->waktu != ''){ echo $ket_pembelian->waktu;}else{} ?>">
+                  <label class="text-black" for="email">Nama</label> 
+                  <input type="text"  title="Waktu" class="form-control" disabled="" value="<?php if($ket_pembelian->nama != ''){ echo $ket_pembelian->nama;}else{} ?>">
                 </div>
               </div>
 
@@ -344,15 +344,15 @@
 
               <div class="row form-group">
                 <div class="col-md-12">
-                  <label class="text-black" for="email">No Telepon</label> 
-                  <input type="text" title="No Telepon" class="form-control"  disabled="" value="<?php if($ket_pembelian->no_telpon != ''){ echo $ket_pembelian->no_telpon;}else{ echo "-";} ?>">
+                  <label class="text-black" for="email">Tema</label> 
+                  <input type="text" title="No Telepon" class="form-control"  disabled="" value="<?php if($ket_pembelian->tema != ''){ echo $ket_pembelian->tema;}else{ echo "-";} ?>">
                 </div>
               </div>
 
               <div class="row form-group">
                 <div class="col-md-12">
-                  <label class="text-black" for="email">Email / Media Sosial</label> 
-                  <input type="text" title="Email / Media Sosial" class="form-control" disabled="" value="<?php if($ket_pembelian->media_sosial != ''){ echo $ket_pembelian->media_sosial;}else{ echo "-";} ?>">
+                  <label class="text-black" for="email">Slogan</label> 
+                  <input type="text" title="Email / Media Sosial" class="form-control" disabled="" value="<?php if($ket_pembelian->slogan != ''){ echo $ket_pembelian->slogan;}else{ echo "-";} ?>">
                 </div>
               </div>
 
